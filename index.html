@@ -1,168 +1,197 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Lumbung Padi PPK ORMAWA EKM FP 2024</title>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-        <style>
-            body {
-                font-family: 'Helvetica', sans-serif;
-                background-color: #e9ecef;
-                color: #333;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                height: 100vh;
-                margin: 0;
-            }
-    
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumbung Padi PPK ORMAWA EKM FP 2024</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Helvetica', sans-serif;
+            background-image: url("https://raw.githubusercontent.com/ayyya18/ppkekmfp/b82da0ec63f1b92e98f9b4ff35b7b457f1bbcbdb/7346577.jpg");
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px 60px;
+            border-radius: 20px;
+            border: 1px solid #ddd;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 60%;
+            max-width: 900px;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .data, .blower-control {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+
+        .data-item, .blower {
+            background: #fff;
+            border: 1px solid #ccc;
+            border-radius: 12px;
+            padding: 20px;
+            width: 180px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .data-item:hover, .blower:hover {
+            transform: translateY(-5px);
+            background-color: #f8f9fa;
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .data-item i, .blower i {
+            font-size: 48px;
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+
+        .blower .fan-icon {
+            transition: transform 0.3s ease;
+        }
+
+        .blower.on .fan-icon {
+            animation: spin 1s infinite linear; /* Spin animation when blower is ON */
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .data-value, .status {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #343a40;
+        }
+
+        .status {
+            margin-top: 10px;
+            color: #ff5733;
+            font-weight: bold;
+        }
+
+        .label {
+            display: block;
+            font-size: 1.5em;
+            margin-block-start: 0.83em;
+            margin-block-end: 0.83em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            font-weight: bold;
+            unicode-bidi: isolate;
+        }
+
+        /* Responsif untuk layar smartphone dengan rasio 9:16 */
+        @media (max-width: 1080px) {
             .container {
-                background: rgba(255, 255, 255, 0.95);
-                padding: 40px 60px;
-                border-radius: 20px;
-                border: 1px solid #ddd;
-                box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-                text-align: center;
-                width: 60%;
-                max-width: 900px;
-                transition: transform 0.3s ease, background-color 0.3s ease;
+                width: 90%;
+                padding: 20px 30px;
             }
-    
+
             .data, .blower-control {
-                display: flex;
-                gap: 20px;
-                justify-content: center;
-                margin-bottom: 40px;
+                flex-direction: column;
+                gap: 15px;
             }
-    
+
             .data-item, .blower {
-                background: #fff;
-                border: 1px solid #ccc;
-                border-radius: 12px;
-                padding: 20px;
-                width: 180px;
-                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-                transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+                width: 100%;
+                padding: 15px;
             }
-    
-            .data-item:hover, .blower:hover {
-                transform: translateY(-5px);
-                background-color: #f8f9fa;
-                box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
-            }
-    
-            .data-item i, .blower i {
-                font-size: 48px;
-                color: #007bff;
-                margin-bottom: 10px;
-            }
-    
+
             .data-value, .status {
-                font-size: 2.5em;
-                font-weight: bold;
-                color: #343a40;
+                font-size: 2em;
             }
-    
-            .status {
-                margin-top: 10px;
-                color: #ff5733;
-                font-weight: bold;
-            }
-    
+
             .label {
-                font-size: 1.2em;
-                font-weight: normal;
-                color: #6c757d;
-                margin-bottom: 10px;
+                font-size: 1em;
             }
-    
-            @media (max-width: 1080px) {
-                .container {
-                    width: 90%;
-                    padding: 20px 30px;
-                }
-    
-                .data, .blower-control {
-                    flex-direction: column;
-                    gap: 15px;
-                }
-    
-                .data-item, .blower {
-                    width: 100%;
-                    padding: 15px;
-                }
-    
-                .data-value, .status {
-                    font-size: 2em;
-                }
-    
-                .label {
-                    font-size: 1em;
-                }
-    
-                .blower-control {
-                    flex-direction: row; /* Blower IN dan OUT berada dalam satu baris */
-                }
+
+            .blower-control {
+                flex-direction: row; /* Blower IN dan OUT berada dalam satu baris */
             }
-        </style>
-      </head>
-      <body>
-        <div class="container">
-            <div class="data">
-                <div class="data-item">
-                    <div class="label">Suhu</div>
-                    <i class="fas fa-temperature-high"></i>
-                    <div class="data-value">
-                        <span id="temperature">--</span> &deg;C
-                    </div>
-                </div>
-                <div class="data-item">
-                    <div class="label">Kelembaban</div>
-                    <i class="fas fa-tint"></i>
-                    <div class="data-value">
-                        <span id="humidity">--</span> %
-                    </div>
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="data">
+            <div class="data-item">
+                <div class="label">Suhu</div>
+                <i class="fas fa-temperature-high"></i>
+                <div class="data-value">
+                    <span id="temperature">--</span> &deg;C
                 </div>
             </div>
-            <div class="blower-control">
-                <div class="blower">
-                    <i class="fas fa-fan"></i> <!-- Icon for Blower IN -->
-                    <h2>Blower IN</h2>
-                    <div id="blowerInStatus" class="status">OFF</div>
-                </div>
-                <div class="blower">
-                    <i class="fas fa-fan"></i> <!-- Icon for Blower OUT -->
-                    <h2>Blower OUT</h2>
-                    <div id="blowerOutStatus" class="status">OFF</div>
+            <div class="data-item">
+                <div class="label">Kelembaban</div>
+                <i class="fas fa-tint"></i>
+                <div class="data-value">
+                    <span id="humidity">--</span> %
                 </div>
             </div>
         </div>
-    
-        <script>
-            // Function to fetch data from ESP32 and update HTML elements
-            function fetchData() {
-                fetch('/data')
-                    .then(response => response.json())
-                    .then(data => {
-                        document.getElementById('temperature').textContent = data.temperature;
-                        document.getElementById('humidity').textContent = data.humidity;
-                        updateBlowerState('in', data.blowerInState);
-                        updateBlowerState('out', data.blowerOutState);
-                    })
-                    .catch(error => console.error('Error fetching data:', error));
+        <div class="blower-control">
+            <div class="blower" id="blowerIn">
+                <i class="fas fa-fan fan-icon"></i> <!-- Icon for Blower IN -->
+                <h2>Blower IN</h2>
+                <div id="blowerInStatus" class="status">OFF</div>
+            </div>
+            <div class="blower" id="blowerOut">
+                <i class="fas fa-fan fan-icon"></i> <!-- Icon for Blower OUT -->
+                <h2>Blower OUT</h2>
+                <div id="blowerOutStatus" class="status">OFF</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Function to fetch data from ESP32 and update HTML elements
+        function fetchData() {
+            fetch('/data')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('temperature').textContent = data.temperature;
+                    document.getElementById('humidity').textContent = data.humidity;
+                    updateBlowerState('in', data.blowerInState);
+                    updateBlowerState('out', data.blowerOutState);
+                })
+                .catch(error => console.error('Error fetching data:', error));
+        }
+
+        // Update blower state as text and add animation class
+        function updateBlowerState(blower, state) {
+            const blowerElement = document.getElementById(`blower${blower.charAt(0).toUpperCase() + blower.slice(1)}`);
+            const statusElement = document.getElementById(`blower${blower.charAt(0).toUpperCase() + blower.slice(1)}Status`);
+
+            statusElement.textContent = state ? 'ON' : 'OFF';
+            statusElement.style.color = state ? '#4CAF50' : '#f44336'; // Green for ON, Red for OFF
+
+            if (state) {
+                blowerElement.classList.add('on'); // Add 'on' class to start spinning
+            } else {
+                blowerElement.classList.remove('on'); // Remove 'on' class to stop spinning
             }
-    
-            function updateBlowerState(blower, state) {
-                const statusElement = document.getElementById(`blower${blower.charAt(0).toUpperCase() + blower.slice(1)}Status`);
-                statusElement.textContent = state ? 'ON' : 'OFF';
-                statusElement.style.color = state ? '#4CAF50' : '#f44336'; // Green for ON, Red for OFF
-            }
-    
-            // Fetch data every second
-            setInterval(fetchData, 1000);
-        </script>
-      </body>
-    </html>
+        }
+
+        // Fetch data every second
+        setInterval(fetchData, 1000);
+    </script>
+</body>
+</html>
